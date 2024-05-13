@@ -1,0 +1,36 @@
+---
+
+const thiccLizzyLogo =
+  "https://dk-asset-cdn.s3.us-east-2.amazonaws.com/images/thicc-lizzy-logo.png";
+
+const seoMeta = {
+  title: "Thicc Lizzy",
+  ogTitle: "Thicc Lizzy",
+  description: "Chicago's premier Thin Lizzy cover band",
+  ogDescription: "Chicago's premier Thin Lizzy cover band",
+  ogUrl: "https://thicclizzy.com",
+  ogImage: thiccLizzyLogo,
+  twitterCard: "summary_large_image",
+}
+
+const {title} = Astro.props
+---
+
+<head>
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <title>{title}</title>
+
+  <!-- social share -->
+  <meta property="og:title" content={seoMeta.ogTitle} />
+  <meta property="og:description" content={seoMeta.ogDescription} />
+  <meta property="og:url" content={seoMeta.ogUrl} />
+  <meta property="og:image" content={seoMeta.ogImage} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={seoMeta.ogTitle} />
+  <meta name="twitter:card" content={seoMeta.twitterCard} />
+  <meta name="twitter:title" content={seoMeta.ogTitle} />
+  <meta name="twitter:description" content={seoMeta.ogDescription} />
+  <meta name="twitter:image" content={seoMeta.ogImage} />
+  <meta name="twitter:url" content={seoMeta.ogUrl} />
+  
+</head>
