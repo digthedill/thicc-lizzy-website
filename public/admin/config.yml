@@ -3,7 +3,7 @@ local_backend: true
 backend:
   name: github
   branch: main
-  # repo: digthedill/thicc_lizzy
+  repo: digthedill/thicc-lizzy-website
   # base_url: https://skh8laxaii.execute-api.us-east-2.amazonaws.com
 #   auth_endpoint: dev/auth
 
@@ -56,19 +56,19 @@ collections:
     files:
       - label: Home Page
         name: "home"
-        file: "content/home.yml"
+        file: "content/pageData/home.yml"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Description, name: intro, widget: markdown }
           - { label: Hero Image, name: img, widget: image, choose_url: true }
       - label: Contact Page
         name: "contact"
-        file: "content/contact.yml"
+        file: "content/pageData/contact.yml"
         fields:
           - { label: Description, name: intro, widget: markdown }
       - label: About
         name: "about"
-        file: "content/about.yml"
+        file: "content/pageData/about.yml"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Description, name: intro, widget: markdown }
