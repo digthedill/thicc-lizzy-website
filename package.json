@@ -11,8 +11,9 @@
     "preview:cms": "astro build && astro preview"
   },
   "dependencies": {
-    "astro": "^4.8.3",
     "@astrojs/check": "^0.6.0",
+    "@astrojs/netlify": "^5.2.1",
+    "astro": "^4.8.3",
     "typescript": "^5.4.5"
   }
 }
