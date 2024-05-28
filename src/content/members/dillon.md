@@ -1,5 +1,5 @@
 ---
 title: Dillon
 description: guitar
-image: /img/dillon.jpg
+image: src/assets/images/dillon.jpg
 ---

@@ -1,7 +1,11 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+import { getEntry } from "astro:content";
+
+const homepage = await getEntry("pageData", "home");
 ---
 
 <DefaultLayout title="Home">
-  <h1>Hello, world!</h1>
+  <h1>{homepage.data.title}</h1>
+  <p>{homepage.data.intro}</p>
 </DefaultLayout>

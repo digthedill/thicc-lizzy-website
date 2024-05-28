@@ -1,5 +1,5 @@
 ---
 title: Kyle
 description: guitar
-image: /img/kyle.jpg
+image: src/assets/images/kyle.jpg
 ---

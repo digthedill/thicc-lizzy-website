@@ -20,7 +20,11 @@ const { title } = Astro.props;
       </main>
     </div>
 
-    <style>
+    <style is:global>
+      @font-face {
+        font-family: "New Rocker";
+        src: url("/fonts/NewRocker-Regular.ttf") format("truetype");
+      }
       html,
       body {
         box-sizing: border-box;
