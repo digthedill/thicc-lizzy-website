@@ -1,7 +1,67 @@
 ---
-import DefaultLayout from "../layouts/DefaultLayout.astro";
+import DefaultLayout from "../layouts/WrapperLayout.astro";
+import { getCollection } from "astro:content";
+
+function formatYouTubeUrl(url: string) {
+  const videoIdMatch = url.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([^&?/]+)/
+  );
+  const queryParamsMatch = url.match(/\?(.*)$/);
+  if (videoIdMatch) {
+    const videoId = videoIdMatch[1];
+    const queryParams = queryParamsMatch ? queryParamsMatch[1] : "";
+    return `https://www.youtube.com/embed/${videoId}?${queryParams}`;
+  }
+  return url;
+}
+
+const media = await getCollection("videos");
+
+const videos = media.map((video) => {
+  return {
+    ...video.data,
+    youtube: formatYouTubeUrl(video.data.youtube),
+  };
+});
 ---
 
 <DefaultLayout title="media">
   <h2>Media</h2>
+  <ul>
+    {
+      videos.map((video) => (
+        <li>
+          <iframe
+            width="560"
+            height="315"
+            src={video.youtube}
+            title={video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+          <h3>
+            {video.title} - {video.location}
+          </h3>
+        </li>
+      ))
+    }
+  </ul>
 </DefaultLayout>
+
+<style>
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+
+  iframe {
+    width: 100%;
+    height: 555px;
+    border: none;
+  }
+</style>

@@ -1,7 +1,20 @@
 ---
-import DefaultLayout from "../layouts/DefaultLayout.astro";
+import DefaultLayout from "../layouts/WrapperLayout.astro";
+import { getCollection } from "astro:content";
+
+const shows = await getCollection("shows");
 ---
 
 <DefaultLayout title="shows">
   <h2>Shows</h2>
+  <ul>
+    {
+      shows.map((show) => (
+        <li>
+          <p>{show.data.title}</p>
+          <p>{show.data.date}</p>
+        </li>
+      ))
+    }
+  </ul>
 </DefaultLayout>
