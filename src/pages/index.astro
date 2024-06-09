@@ -1,21 +1,10 @@
 ---
 import WrapperLayout from "../layouts/WrapperLayout.astro";
-import SinglePageView from "../layouts/SinglePageView.astro";
 import { getEntry } from "astro:content";
 
 const homepage = await getEntry("pageData", "home");
 ---
 
-<WrapperLayout title="Home">
-  <!-- Splash Page -->
-  <SinglePageView page="">
-    <h1>{homepage.data.title}</h1>
-    <p>{homepage.data.intro}</p>
-  </SinglePageView>
-
-  <!-- About Page -->
-  <SinglePageView page="about">
-    <h2>About</h2>
-    <p>This is the band</p>
-  </SinglePageView>
+<WrapperLayout title={homepage.data.title}>
+  <p>{homepage.data.intro}</p>
 </WrapperLayout>
