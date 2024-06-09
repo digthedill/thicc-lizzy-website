@@ -1,0 +1,59 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <BaseHead title={title} />
+  </head>
+  <body>
+    <div class="main__backsplash">
+      <Header />
+      <main>
+        <section class="main__container">
+          <slot />
+        </section>
+      </main>
+    </div>
+
+    <style is:global>
+      @font-face {
+        font-family: "New Rocker";
+        src: url("/fonts/NewRocker-Regular.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "RedditMono";
+        src: url("/fonts/RedditMono-VariableFont_wght.ttf") format("truetype");
+      }
+      :root {
+        --primary-color: #172121;
+        --primary-color-dark: #0f1414;
+        --secondary-color: #e5d0cc;
+        --secondary-color-dark: #e5d0ccc2;
+        --accent-color: #bfacb5;
+        --max-content-width: 1200px;
+
+        --font-family-heading: "RedditMono", monospace;
+      }
+      html,
+      body {
+        box-sizing: border-box;
+        position: relative;
+        background-color: var(--primary-color);
+        margin: 0;
+      }
+      .main__backsplash {
+        min-height: 100%;
+        min-width: 100%;
+        width: 100%;
+        background: var(--primary-color);
+        /* background-image: url("https://wallpaperaccess.com/full/1840926.jpg"); */
+        background-size: 250px;
+      }
+    </style>
+  </body>
+</html>

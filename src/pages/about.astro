@@ -1,7 +1,21 @@
 ---
-import DefaultLayout from "../layouts/DefaultLayout.astro";
+import DefaultLayout from "../layouts/WrapperLayout.astro";
+import { getEntry, getCollection } from "astro:content";
+const aboutPage = await getEntry("pageData", "about");
+const members = await getCollection("members");
 ---
 
 <DefaultLayout title="about">
-  <h2>About</h2>
+  <h2>{aboutPage.data.title}</h2>
+  <p>{aboutPage.data.intro}</p>
+
+  {
+    members.map((member) => (
+      <div>
+        <img src={member.data.image} alt={member.data.title} />
+        <h3>{member.data.title}</h3>
+        <p>{member.data.description}</p>
+      </div>
+    ))
+  }
 </DefaultLayout>
