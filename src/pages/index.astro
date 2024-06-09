@@ -5,6 +5,6 @@ import { getEntry } from "astro:content";
 const homepage = await getEntry("pageData", "home");
 ---
 
-<WrapperLayout title={homepage.data.title}>
-  <p>{homepage.data.intro}</p>
+<WrapperLayout title={homepage?.data.title}>
+  <p>{homepage?.data.intro}</p>
 </WrapperLayout>

@@ -5,7 +5,6 @@ import { getEntry } from "astro:content";
 const contactPage = await getEntry("pageData", "contact");
 ---
 
-<DefaultLayout title="contact">
-  <h2>Contact</h2>
+<DefaultLayout title={contactPage.data.title}>
   <p>{contactPage.data.intro}</p>
 </DefaultLayout>

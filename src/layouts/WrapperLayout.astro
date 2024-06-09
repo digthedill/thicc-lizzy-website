@@ -15,6 +15,7 @@ const { title } = Astro.props;
       <Header />
       <main>
         <section class="main__container">
+          <h1>{title}</h1>
           <slot />
         </section>
       </main>
@@ -35,7 +36,7 @@ const { title } = Astro.props;
         --secondary-color: #e5d0cc;
         --secondary-color-dark: #e5d0ccc2;
         --accent-color: #bfacb5;
-        --max-content-width: 1200px;
+        --max-content-width: 1100px;
 
         --font-family-heading: "RedditMono", monospace;
       }
@@ -53,6 +54,15 @@ const { title } = Astro.props;
         background: var(--primary-color);
         /* background-image: url("https://wallpaperaccess.com/full/1840926.jpg"); */
         background-size: 250px;
+      }
+
+      .main__container {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        max-width: var(--max-content-width);
+        margin: 0 auto;
+        color: var(--secondary-color);
       }
     </style>
   </body>

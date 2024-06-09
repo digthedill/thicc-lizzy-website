@@ -5,8 +5,7 @@ import { getCollection } from "astro:content";
 const shows = await getCollection("shows");
 ---
 
-<DefaultLayout title="shows">
-  <h2>Shows</h2>
+<DefaultLayout title="Shows">
   <ul>
     {
       shows.map((show) => (

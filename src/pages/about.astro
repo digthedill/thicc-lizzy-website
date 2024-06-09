@@ -5,9 +5,12 @@ const aboutPage = await getEntry("pageData", "about");
 const members = await getCollection("members");
 ---
 
-<DefaultLayout title="about">
-  <h2>{aboutPage.data.title}</h2>
+<DefaultLayout title={aboutPage.data.title}>
   <p>{aboutPage.data.intro}</p>
+
+  <hr />
+
+  <p>{aboutPage.data.description}</p>
 
   {
     members.map((member) => (

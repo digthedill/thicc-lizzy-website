@@ -90,7 +90,8 @@ export default defineConfig({
               {
                 label: "Home Page",
                 name: "home",
-                file: "content/pageData/home.yml",
+                file: "src/content/pageData/home.yml",
+                create: true,
                 fields: [
                   { label: "Title", name: "title", widget: "string" },
                   { label: "Description", name: "intro", widget: "markdown" },
@@ -105,7 +106,8 @@ export default defineConfig({
               {
                 label: "Contact Page",
                 name: "contact",
-                file: "content/pageData/contact.yml",
+                file: "src/content/pageData/contact.yml",
+                create: true,
                 fields: [
                   { label: "Description", name: "intro", widget: "markdown" },
                 ],
@@ -113,10 +115,16 @@ export default defineConfig({
               {
                 label: "About",
                 name: "about",
-                file: "content/pageData/about.yml",
+                file: "src/content/pageData/about.yml",
+                create: true,
                 fields: [
                   { label: "Title", name: "title", widget: "string" },
-                  { label: "Description", name: "intro", widget: "markdown" },
+                  { label: "Intro", name: "intro", widget: "markdown" },
+                  {
+                    label: "Description",
+                    name: "description",
+                    widget: "markdown",
+                  },
                 ],
               },
             ],
